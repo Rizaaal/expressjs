@@ -6,8 +6,15 @@ if (process.env.NODE_ENV !== 'production') {
 // call after config() to access the env variables
 import { app } from './api';
 
-const port = process.env.PORT || 3333;
+const { connect } = require('./db');
+const port = 3333;
+const address = '::';
 
-app.listen(port, () =>
-  console.log(`API available on http://localhost:${port}`)
-);
+// connect db
+connect()
+  .then((client) => {
+    app.listen(port, address, () =>
+      console.log(`API available on ${address}:${port}`)
+    );
+  })
+  .catch((error) => console.error(error));
