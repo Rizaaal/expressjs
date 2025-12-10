@@ -5,8 +5,8 @@ export const client = new MongoClient(
   }`,
   {
     auth: {
-      username: process.env.MONGO_USERNAME,
-      password: process.env.MONGO_PASSWORD
+      username: process.env.MONGOUSER,
+      password: process.env.MONGOPASSWORD
     }
   }
 );
