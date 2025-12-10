@@ -1,12 +1,13 @@
 import { Db, MongoClient } from 'mongodb';
-
-const url = 'mongodb://nozomi.proxy.rlwy.net:44778';
-export const client = new MongoClient(url, {
-  auth: {
-    username: process.env.MONGO_USERNAME,
-    password: process.env.MONGO_PASSWORD
+export const client = new MongoClient(
+  `mongodb://${process.env.MONGOHOST || process.env.MONGOHOST_DEV}`,
+  {
+    auth: {
+      username: process.env.MONGO_USERNAME,
+      password: process.env.MONGO_PASSWORD
+    }
   }
-});
+);
 
 let db: Db;
 

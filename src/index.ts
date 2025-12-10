@@ -13,8 +13,9 @@ const address = '::';
 // connect db
 connect()
   .then((client) => {
-    app.listen(port, address, () =>
-      console.log(`API available on ${address}:${port}`)
-    );
+    app.listen(port, address, () => {
+      console.log(`API available on ${address}:${port}`);
+      console.log('MONGOHOST: ', process.env.MONGOHOST);
+    });
   })
   .catch((error) => console.error(error));
