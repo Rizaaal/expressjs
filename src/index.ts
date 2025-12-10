@@ -7,7 +7,7 @@ if (process.env.NODE_ENV !== 'production') {
 import { app } from './api';
 
 const { connect } = require('./db');
-const port = 3333;
+const port = Number(process.env.PORT) || 3333;
 const address = '::';
 
 // connect db

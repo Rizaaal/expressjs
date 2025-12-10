@@ -16,6 +16,12 @@ let db: Db;
 async function connect() {
   await client.connect();
   console.log('Database Connected successfully to server!');
+  console.log(
+    'client: ',
+    `mongodb://${process.env.MONGOHOST || process.env.MONGOHOST_DEV}:${
+      process.env.MONGOPORT
+    }`
+  );
   db = client.db('shopping-list');
 }
 
