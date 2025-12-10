@@ -1,6 +1,8 @@
 import { Db, MongoClient } from 'mongodb';
 export const client = new MongoClient(
-  `mongodb://${process.env.MONGOHOST || process.env.MONGOHOST_DEV}`,
+  `mongodb://${process.env.MONGOHOST || process.env.MONGOHOST_DEV}:${
+    process.env.MONGOPORT
+  }`,
   {
     auth: {
       username: process.env.MONGO_USERNAME,
